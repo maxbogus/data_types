@@ -20,9 +20,13 @@ locations = {'North America': {'USA': ['Mountain View']}, 'Asia': {"India": "Ban
 
 locations['North America']['USA'].append('Atlanta')
 
-# TODO: print USA cities
+print 1
+usa_sorted = sorted(locations['North America']['USA'])
+for city in usa_sorted:
+    print city
 
-for k, v in locations['Asia'].items():
+print 2
+for k, v in sorted(locations['Asia'].items(), key=lambda (x): x, reverse=True):
     print "{} - {}".format(v, k)
 
 """Print the following (using "print").
