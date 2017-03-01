@@ -26,18 +26,25 @@ class HashTable(object):
     def store(self, string):
         """Input a string that's stored in
         the table."""
-        pass
+        hv = self.calculate_hash_value(string)
+        if hv != -1:
+            if self.table[hv] is not None:
+                self.table[hv].append(string)
+            else:
+                self.table[hv] = [string]
 
     def lookup(self, string):
         """Return the hash value if the
         string is already in the table.
         Return -1 otherwise."""
-        return -1
+        hv = self.calculate_hash_value(string)
+        result = self.table[hv]
+        return -1 if result is None else hv
 
     def calculate_hash_value(self, string):
         """Helper function to calulate a
         hash value from a string."""
-        return -1
+        return ord(string[0]) * 100 + ord(string[1])
 
 
 # Setup
