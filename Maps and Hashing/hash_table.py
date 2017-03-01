@@ -41,8 +41,9 @@ class HashTable(object):
         result = self.table[hv]
         return -1 if result is None else hv
 
-    def calculate_hash_value(self, string):
-        """Helper function to calulate a
+    @staticmethod
+    def calculate_hash_value(string):
+        """Helper function to calculate a
         hash value from a string."""
         return ord(string[0]) * 100 + ord(string[1])
 
