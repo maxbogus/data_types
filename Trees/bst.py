@@ -4,6 +4,7 @@ class Node(object):
         self.left = None
         self.right = None
 
+
 class BST(object):
     def __init__(self, root):
         self.root = Node(root)
@@ -13,6 +14,7 @@ class BST(object):
 
     def search(self, find_val):
         return False
+
 
 # Set up tree
 tree = BST(4)
