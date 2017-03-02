@@ -13,6 +13,8 @@ class BinaryTree(object):
         """Return True if the value
         is in the tree, return
         False otherwise."""
+        if self.root:
+            return self.preorder_search(self.root, find_val)
         return False
 
     def print_tree(self):
@@ -24,6 +26,11 @@ class BinaryTree(object):
     def preorder_search(self, start, find_val):
         """Helper method - use this to create a 
         recursive search solution."""
+        if start:
+            if start.value == find_val:
+                return True
+            else:
+                return self.preorder_search(start.right, find_val) or self.preorder_search(start.left, find_val)
         return False
 
     def preorder_print(self, start, traversal):
@@ -41,7 +48,11 @@ tree.root.left.right = Node(5)
 
 # Test search
 # Should be True
+print tree.search(1)
+# Should be True
 print tree.search(4)
+# Should be True
+print tree.search(5)
 # Should be False
 print tree.search(6)
 
