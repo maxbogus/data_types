@@ -53,7 +53,13 @@ class Graph(object):
         Each section in the list will store a list
         of tuples that looks like this:
         (To Node, Edge Value)"""
-        return []
+        adjacency_list = [None] * (self.find_max_index() + 1)
+        for edge in self.edges:
+            if adjacency_list[edge.node_from.value]:
+                adjacency_list[edge.node_from.value].append((edge.node_to.value, edge.value))
+            else:
+                adjacency_list[edge.node_from.value] = [(edge.node_to.value, edge.value)]
+        return adjacency_list
 
     def get_adjacency_matrix(self):
         """Return a matrix, or 2D list.
@@ -79,11 +85,7 @@ graph.insert_edge(102, 1, 4)
 graph.insert_edge(103, 3, 4)
 # Should be [(100, 1, 2), (101, 1, 3), (102, 1, 4), (103, 3, 4)]
 print graph.get_edge_list()
-# Should be [None,
-#           [(2, 100), (3, 101), (4, 102)],
-#           None,
-#           [(4, 103)],
-#           None]
+# Should be [None, [(2, 100), (3, 101), (4, 102)], None, [(4, 103)], None]
 print graph.get_adjacency_list()
 # Should be [   [0, 0, 0, 0, 0],
 #               [0, 0, 100, 101, 102],
