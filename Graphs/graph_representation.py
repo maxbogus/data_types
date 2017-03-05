@@ -67,7 +67,11 @@ class Graph(object):
         column numbers represent to nodes.
         Store the edge values in each spot,
         and a 0 if no edge exists."""
-        return []
+        max_index = self.find_max_index() + 1
+        adjacency_matrix = [[0 for i in xrange(max_index)] for j in xrange(max_index)]
+        for egde in self.edges:
+            adjacency_matrix[egde.node_from.value][egde.node_to.value] = egde.value
+        return adjacency_matrix
 
     def find_max_index(self):
         max_index = -1
