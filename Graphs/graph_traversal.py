@@ -181,6 +181,22 @@ class Graph(object):
         self._clear_visited()
         ret_list = [node.value]
         # Your code here
+        queue = [node]
+        node.visited = True
+
+        def enqueue(n, q=queue):
+            n.visited = True
+            q.append(n)
+
+        def unvisited_outgoing_edge(n, e):
+            return ((e.node_from.value == n.value) and (not e.node_to.visited))
+
+        while queue:
+            node = queue.pop(0)
+            ret_list.append(node.value)
+            for edge in node.edges:
+                if unvisited_outgoing_edge(node, edge):
+                    enqueue(edge.node_to)
         return ret_list
 
     def bfs_names(self, start_node_num):
