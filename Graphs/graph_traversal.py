@@ -22,6 +22,7 @@ class Edge(object):
 # and the methods ending in "_names" which will print names instead
 # of node numbers
 
+
 class Graph(object):
     def __init__(self, nodes=None, edges=None):
         self.nodes = nodes or []
@@ -145,7 +146,7 @@ class Graph(object):
         output should be a list of numbers corresponding to the
         values of the traversed nodes.
         ARGUMENTS: start_node is the starting Node
-        MODIFIES: the value of the visited property of nodes in self.nodes
+        MODIFIES: the value of the visited property of nodes in self.nodes 
         RETURN: a list of the traversed node values (integers).
         """
         ret_list = [start_node.value]
@@ -171,7 +172,7 @@ class Graph(object):
         return [self.node_names[num] for num in self.dfs(start_node_num)]
 
     def bfs(self, start_node_num):
-        """TODO: Create an iterative implementation of Breadth First Search
+        """An iterative implementation of Breadth First Search
         iterating through a node's edges. The output should be a list of
         numbers corresponding to the traversed nodes.
         ARGUMENTS: start_node_num is the node number (integer)
@@ -179,7 +180,7 @@ class Graph(object):
         RETURN: a list of the node values (integers)."""
         node = self.find_node(start_node_num)
         self._clear_visited()
-        ret_list = [node.value]
+        ret_list = []
         # Your code here
         queue = [node]
         node.visited = True
@@ -189,14 +190,15 @@ class Graph(object):
             q.append(n)
 
         def unvisited_outgoing_edge(n, e):
-            return ((e.node_from.value == n.value) and (not e.node_to.visited))
+            return ((e.node_from.value == n.value) and
+                    (not e.node_to.visited))
 
         while queue:
             node = queue.pop(0)
             ret_list.append(node.value)
-            for edge in node.edges:
-                if unvisited_outgoing_edge(node, edge):
-                    enqueue(edge.node_to)
+            for e in node.edges:
+                if unvisited_outgoing_edge(node, e):
+                    enqueue(e.node_to)
         return ret_list
 
     def bfs_names(self, start_node_num):
