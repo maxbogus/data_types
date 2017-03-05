@@ -19,7 +19,7 @@ def question2(a):
     return []
 
 
-def question3():
+def question3(G):
     """ # Question 3
     Given an undirected graph G, find the minimum spanning tree within G.
     A minimum spanning tree connects all vertices in a graph with the smallest possible total weight of edges.
@@ -32,7 +32,7 @@ def question3():
     return []
 
 
-def question4():
+def question4(T, r, n1, n2):
     """ # Question 4
     # Find the least common ancestor between two nodes on a binary search tree.
     # The least common ancestor is the farthest node from the root that is an ancestor of both nodes.
@@ -56,7 +56,7 @@ def question4():
     return []
 
 
-def question5():
+def question5(ll, m):
     """ # Question 5
     # Find the element in a singly linked list that's m elements from the end.
     # For example, if a linked list has 5 elements, the 3rd element from the end is the 3rd element.
