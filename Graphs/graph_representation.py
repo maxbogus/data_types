@@ -48,7 +48,7 @@ class Graph(object):
     def get_adjacency_list(self):
         """Don't return any Node or Edge objects!
         You'll return a list of lists.
-        The indecies of the outer list represent
+        The indices of the outer list represent
         "from" nodes.
         Each section in the list will store a list
         of tuples that looks like this:
@@ -63,6 +63,14 @@ class Graph(object):
         and a 0 if no edge exists."""
         return []
 
+    def find_max_index(self):
+        max_index = -1
+        if len(self.nodes):
+            for node in self.nodes:
+                if node.value > max_index:
+                    max_index = node.value
+        return max_index
+
 
 graph = Graph()
 graph.insert_edge(100, 1, 2)
@@ -71,7 +79,15 @@ graph.insert_edge(102, 1, 4)
 graph.insert_edge(103, 3, 4)
 # Should be [(100, 1, 2), (101, 1, 3), (102, 1, 4), (103, 3, 4)]
 print graph.get_edge_list()
-# Should be [None, [(2, 100), (3, 101), (4, 102)], None, [(4, 103)], None]
+# Should be [None,
+#           [(2, 100), (3, 101), (4, 102)],
+#           None,
+#           [(4, 103)],
+#           None]
 print graph.get_adjacency_list()
-# Should be [[0, 0, 0, 0, 0], [0, 0, 100, 101, 102], [0, 0, 0, 0, 0], [0, 0, 0, 0, 103], [0, 0, 0, 0, 0]]
+# Should be [   [0, 0, 0, 0, 0],
+#               [0, 0, 100, 101, 102],
+#               [0, 0, 0, 0, 0],
+#               [0, 0, 0, 0, 103],
+#               [0, 0, 0, 0, 0]]
 print graph.get_adjacency_matrix()
