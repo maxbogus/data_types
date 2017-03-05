@@ -28,10 +28,10 @@ class Graph(object):
                 from_found = node
             if node_to_val == node.value:
                 to_found = node
-        if from_found == None:
+        if from_found is None:
             from_found = Node(node_from_val)
             self.nodes.append(from_found)
-        if to_found == None:
+        if to_found is None:
             to_found = Node(node_to_val)
             self.nodes.append(to_found)
         new_edge = Edge(new_edge_val, from_found, to_found)
