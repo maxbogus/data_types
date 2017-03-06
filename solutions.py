@@ -1,3 +1,6 @@
+import unittest
+
+
 class Node(object):
     def __init__(self, data):
         self.data = data
@@ -9,7 +12,21 @@ def question1(s, t):
     Given two strings s and t, determine whether some anagram of t is a substring of s.
     For example: if s = "udacity" and t = "ad", then the function returns True.
     Your function definition should look like: question1(s, t) and return a boolean True or False."""
-    return []
+    if s == t:
+        return True
+    return False
+
+
+# Should be true
+print question1('a', 'a')
+# Should be true
+print question1(None, None)
+# Should be False
+print question1('a', 'b')
+# Should be True
+print question1('ab', 'b')
+# Should be True
+print question1('udacity', 'ad')
 
 
 def question2(a):
@@ -65,3 +82,44 @@ def question5(ll, m):
     # You should copy/paste the Node class below to use as a representation of a node in the linked list.
     # Return the value of the node at that position."""
     return []
+
+
+class TestStringMethods(unittest.TestCase):
+    def test_firstQuestion(self):
+        self.assertTrue(question1('a', 'a'))
+        self.assertTrue(question1(None, None))
+        self.assertFalse(question1('a', 'b'))
+        self.assertTrue(question1('ab', 'b'))
+        self.assertTrue(('udacity', 'ad'))
+
+    def test_secondQuestion(self):
+        self.assertTrue(question1('a', 'a'))
+        self.assertTrue(question1(None, None))
+        self.assertFalse(question1('a', 'b'))
+        self.assertTrue(question1('ab', 'b'))
+        self.assertTrue(('udacity', 'ad'))
+
+    def test_thirdQuestion(self):
+        self.assertTrue(question1('a', 'a'))
+        self.assertTrue(question1(None, None))
+        self.assertFalse(question1('a', 'b'))
+        self.assertTrue(question1('ab', 'b'))
+        self.assertTrue(('udacity', 'ad'))
+
+    def test_fourthQuestion(self):
+        self.assertTrue(question1('a', 'a'))
+        self.assertTrue(question1(None, None))
+        self.assertFalse(question1('a', 'b'))
+        self.assertTrue(question1('ab', 'b'))
+        self.assertTrue(('udacity', 'ad'))
+
+    def test_fifthQuestion(self):
+        self.assertTrue(question1('a', 'a'))
+        self.assertTrue(question1(None, None))
+        self.assertFalse(question1('a', 'b'))
+        self.assertTrue(question1('ab', 'b'))
+        self.assertTrue(('udacity', 'ad'))
+
+
+if __name__ == '__main__':
+    unittest.main()
