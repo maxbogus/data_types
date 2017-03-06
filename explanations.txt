@@ -1,0 +1,34 @@
+Question 1:
+a. Code design:
+For this question I decided to break solution into two steps:
+First, I have to check if t is not equal "s".
+Because it is clearly said that it should be an anagram and "s" should be smaller than "t".
+Then I'm iterating over "s" and checking if part exists in "t". If it is - I'm adding it to "result" string.
+Finally, i'm returning if "result" matches "t".
+b. Efficiency:
+O(t) - worst case.
+Where "t" is a substring. Because I have to check all parts of "t" in "s".
+
+
+Question 2:
+a. Code design:
+
+b. Efficiency:
+
+
+Question 3:
+a. Code design:
+
+b. Efficiency:
+
+
+Question 4:
+a. Code design:
+
+b. Efficiency:
+
+
+Question 5:
+a. Code design:
+
+b. Efficiency:

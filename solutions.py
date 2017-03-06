@@ -12,8 +12,8 @@ def question1(s, t):
     Given two strings s and t, determine whether some anagram of t is a substring of s.
     For example: if s = "udacity" and t = "ad", then the function returns True.
     Your function definition should look like: question1(s, t) and return a boolean True or False."""
-    if s == t:
-        return True
+    if s == t or len(s) < len(t):
+        return False
     result = ''
     for letter in t:
         if letter in s:
@@ -21,12 +21,14 @@ def question1(s, t):
     return result == t
 
 
-# Should be true
+# Should be False
 print question1('a', 'a')
-# Should be true
+# Should be False
 print question1(None, None)
 # Should be False
 print question1('a', 'b')
+# Should be False
+print question1('aaaaa', 'a')
 # Should be True
 print question1('ab', 'b')
 # Should be True
@@ -90,8 +92,8 @@ def question5(ll, m):
 
 class TestStringMethods(unittest.TestCase):
     def test_firstQuestion(self):
-        self.assertTrue(question1('a', 'a'))
-        self.assertTrue(question1(None, None))
+        self.assertFalse(question1('a', 'a'))
+        self.assertFalse(question1(None, None))
         self.assertFalse(question1('a', 'b'))
         self.assertTrue(question1('ab', 'b'))
         self.assertTrue(('udacity', 'ad'))
