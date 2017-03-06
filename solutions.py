@@ -14,7 +14,11 @@ def question1(s, t):
     Your function definition should look like: question1(s, t) and return a boolean True or False."""
     if s == t:
         return True
-    return False
+    result = ''
+    for letter in t:
+        if letter in s:
+            result += letter
+    return result == t
 
 
 # Should be true
@@ -93,32 +97,16 @@ class TestStringMethods(unittest.TestCase):
         self.assertTrue(('udacity', 'ad'))
 
     def test_secondQuestion(self):
-        self.assertTrue(question1('a', 'a'))
-        self.assertTrue(question1(None, None))
-        self.assertFalse(question1('a', 'b'))
-        self.assertTrue(question1('ab', 'b'))
-        self.assertTrue(('udacity', 'ad'))
+        self.assertTrue(question2(''))
 
     def test_thirdQuestion(self):
-        self.assertTrue(question1('a', 'a'))
-        self.assertTrue(question1(None, None))
-        self.assertFalse(question1('a', 'b'))
-        self.assertTrue(question1('ab', 'b'))
-        self.assertTrue(('udacity', 'ad'))
+        self.assertTrue(question3(''))
 
     def test_fourthQuestion(self):
-        self.assertTrue(question1('a', 'a'))
-        self.assertTrue(question1(None, None))
-        self.assertFalse(question1('a', 'b'))
-        self.assertTrue(question1('ab', 'b'))
-        self.assertTrue(('udacity', 'ad'))
+        self.assertTrue(question4('', '', '', ''))
 
     def test_fifthQuestion(self):
-        self.assertTrue(question1('a', 'a'))
-        self.assertTrue(question1(None, None))
-        self.assertFalse(question1('a', 'b'))
-        self.assertTrue(question1('ab', 'b'))
-        self.assertTrue(('udacity', 'ad'))
+        self.assertTrue(question5('', ''))
 
 
 if __name__ == '__main__':
