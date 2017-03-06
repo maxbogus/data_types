@@ -39,20 +39,30 @@ def question2(a):
     """ # Question 2
     Given a string a, find the longest palindromic substring contained in a.
     Your function definition should look like question2(a), and return a string."""
+    if is_palindrome(a):
+        return a
     result = ''
+    limit = len(a)
     index = 0
-    while index < len(a) - 1:
-        # seek combination
-        # check if palindrome
-        # store subresult
-        # if subresult > result
-        # replace subresult with result
+    while index < limit:
+        pindex = 0
+        while pindex < limit:
+            print index, pindex
+            sub = a[index:limit - pindex]
+            if len(result) >= len(sub):
+                break
+            print sub
+            if is_palindrome(sub):
+                if len(sub) > len(result):
+                    result = sub
+            pindex += 1
         index += 1
     return result
 
 
 def is_palindrome(s):
     return s == s[::-1]
+
 
 # should be s
 print question2('sex')
@@ -119,9 +129,9 @@ class TestStringMethods(unittest.TestCase):
         self.assertTrue(('udacity', 'ad'))
 
     def test_secondQuestion(self):
-        self.assertEquals(question2('sex'), 's')
-        self.assertEquals(question2('sexes'), 'sexes')
-        self.assertEquals(question2('presexesx'), 'sexes')
+        self.assertEquals('sexes', question2('sexes'))
+        self.assertEquals('sexes', question2('presexesx'))
+        self.assertEquals('s', question2('sex'))
 
     def test_thirdQuestion(self):
         self.assertTrue(question3(''))
