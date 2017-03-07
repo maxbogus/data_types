@@ -121,6 +121,16 @@ def question5(ll, m):
     return []
 
 
+node1 = None
+
+# should be 3
+print question5(node1, 3)
+# should be 5
+print question5(node1, 4)
+# should be ''
+print question5('', 3)
+
+
 class TestStringMethods(unittest.TestCase):
     def test_firstQuestion(self):
         self.assertFalse(question1('a', 'a'))
@@ -141,7 +151,9 @@ class TestStringMethods(unittest.TestCase):
         self.assertTrue(question4('', '', '', ''))
 
     def test_fifthQuestion(self):
-        self.assertTrue(question5('', ''))
+        self.assertEquals(question5(node1, 3), 3)
+        self.assertNotEquals(question5(node1, 4), 5)
+        self.assertEquals(question5('', 3), '')
 
 
 if __name__ == '__main__':
