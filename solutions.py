@@ -46,12 +46,13 @@ def question2(a):
     index = 0
     while index < limit:
         pindex = 0
+        if len(result) >= (limit - index):
+            break
         while pindex < limit:
-            print index, pindex
             sub = a[index:limit - pindex]
+            # TODO: optimize break condition
             if len(result) >= len(sub):
                 break
-            print sub
             if is_palindrome(sub):
                 if len(sub) > len(result):
                     result = sub
