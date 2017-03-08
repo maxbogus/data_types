@@ -7,6 +7,20 @@ class Node(object):
         self.next = None
 
 
+class LinkedList(object):
+    def __init__(self, head=None):
+        self.head = head
+
+    def append(self, new_element):
+        current = self.head
+        if self.head:
+            while current.next:
+                current = current.next
+            current.next = new_element
+        else:
+            self.head = new_element
+
+
 def question1(s, t):
     """ Question 1:
     Given two strings s and t, determine whether some anagram of t is a substring of s.
@@ -118,17 +132,30 @@ def question5(ll, m):
     # linked list and m is the "mth number from the end".
     # You should copy/paste the Node class below to use as a representation of a node in the linked list.
     # Return the value of the node at that position."""
-    return []
+    current = ll.head
+    result = [current.data]
+    while current.next:
+        current = current.next
+        result.append(current.data)
+    return result[m - 1] if m - 1 < len(result) else -1
 
 
-node1 = None
+e1 = Node(1)
+e2 = Node(2)
+e3 = Node(3)
+e4 = Node(4)
+
+ll = LinkedList(e1)
+ll.append(e2)
+ll.append(e3)
+ll.append(e4)
 
 # should be 3
-print question5(node1, 3)
-# should be 5
-print question5(node1, 4)
-# should be ''
-print question5('', 3)
+print question5(ll, 3)
+# should be 4
+print question5(ll, 4)
+# should be -1
+print question5(ll, 6)
 
 
 class TestStringMethods(unittest.TestCase):
@@ -151,9 +178,9 @@ class TestStringMethods(unittest.TestCase):
         self.assertTrue(question4('', '', '', ''))
 
     def test_fifthQuestion(self):
-        self.assertEquals(question5(node1, 3), 3)
-        self.assertNotEquals(question5(node1, 4), 5)
-        self.assertEquals(question5('', 3), '')
+        self.assertEquals(question5(ll, 3), 3)
+        self.assertNotEquals(question5(ll, 4), 4)
+        self.assertEquals(question5(ll, 6), -1)
 
 
 if __name__ == '__main__':
