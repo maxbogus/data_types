@@ -179,7 +179,7 @@ class TestStringMethods(unittest.TestCase):
 
     def test_fifthQuestion(self):
         self.assertEquals(question5(ll, 3), 3)
-        self.assertNotEquals(question5(ll, 4), 4)
+        self.assertEquals(question5(ll, 4), 4)
         self.assertEquals(question5(ll, 6), -1)
 
 
